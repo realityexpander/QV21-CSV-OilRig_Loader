@@ -20,6 +20,22 @@ public class ScrollingActivity extends AppCompatActivity {
     String[] wellListRow;
     int wellListIdx;
 
+    EditText editText0;
+    EditText editText1;
+    EditText editText2;
+    EditText editText3;
+    EditText editText4;
+    EditText editText5;
+    EditText editText6;
+    EditText editText7;
+    EditText editText8;
+    EditText editText9;
+    EditText editText10;
+    EditText editText11;
+    EditText editText12;
+    EditText editText13;
+    EditText editText14;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +47,6 @@ public class ScrollingActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Snackbar.make(view, "Well Data Saved", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
                 Toast.makeText(getApplicationContext(), "Well Data Saved!",
                         Toast.LENGTH_LONG).show();
 
@@ -41,64 +55,65 @@ public class ScrollingActivity extends AppCompatActivity {
                 intent.putExtra("index", wellListIdx);
                 setResult(Activity.RESULT_OK, intent);
 
-                // FIXME - Collect the edits
+                // Collect the edits
+                wellListRow[0] = editText0.getText().toString();
+                wellListRow[1] = editText1.getText().toString();
+                wellListRow[2] = editText2.getText().toString();
+                wellListRow[3] = editText3.getText().toString();
+                wellListRow[4] = editText4.getText().toString();
+                wellListRow[5] = editText5.getText().toString();
+                wellListRow[6] = editText6.getText().toString();
+                wellListRow[7] = editText7.getText().toString();
+                wellListRow[8] = editText8.getText().toString();
+                wellListRow[9] = editText9.getText().toString();
+                wellListRow[10] = editText10.getText().toString();
+                wellListRow[11] = editText11.getText().toString();
+                wellListRow[12] = editText12.getText().toString();
+                wellListRow[13] = editText13.getText().toString();
+                wellListRow[14] = editText14.getText().toString();
+
                 Log.d("CDA sending back edits:", Arrays.toString(wellListRow) );
-                //startActivity(intent);
                 finish();
             }
         });
 
         Bundle bundle = getIntent().getExtras();
-        String[] wellListRow = bundle.getStringArray("wellListRow");
-        int wellListIdx = bundle.getInt("index");
-        Log.d("CDA in ScrollingActivity", Arrays.toString(wellListRow) );
+        wellListRow = bundle.getStringArray("wellListRow");
+        wellListIdx = bundle.getInt("index");
+        //Log.d("CDA in ScrollingActivity", Arrays.toString(wellListRow) );
 
         setTitle("Editing: " + wellListRow[5]);
 
-        TextView editText0 = (TextView)findViewById(R.id.dump_text0);
-        editText0.setText(wellListRow[0], TextView.BufferType.EDITABLE);
-
-        TextView editText1 = (TextView)findViewById(R.id.dump_text1);
-        editText1.setText(wellListRow[1], TextView.BufferType.EDITABLE);
-
-        TextView editText2 = (TextView)findViewById(R.id.dump_text2);
-        editText2.setText(wellListRow[2], TextView.BufferType.EDITABLE);
-
-        TextView editText3 = (TextView)findViewById(R.id.dump_text3);
-        editText3.setText(wellListRow[3], TextView.BufferType.EDITABLE);
-
-        TextView editText4 = (TextView)findViewById(R.id.dump_text4);
-        editText4.setText(wellListRow[4], TextView.BufferType.EDITABLE);
-
-        TextView editText5 = (TextView)findViewById(R.id.dump_text5);
-        editText5.setText(wellListRow[5], TextView.BufferType.EDITABLE);
-
-        TextView editText6 = (TextView)findViewById(R.id.dump_text6);
-        editText6.setText(wellListRow[6], TextView.BufferType.EDITABLE);
-
-        TextView editText7 = (TextView)findViewById(R.id.dump_text7);
-        editText7.setText(wellListRow[7], TextView.BufferType.EDITABLE);
-
-        TextView editText8 = (TextView)findViewById(R.id.dump_text8);
-        editText8.setText(wellListRow[8], TextView.BufferType.EDITABLE);
-
-        TextView editText9 = (TextView)findViewById(R.id.dump_text9);
-        editText9.setText(wellListRow[9], TextView.BufferType.EDITABLE);
-
-        TextView editText10 = (TextView)findViewById(R.id.dump_text10);
-        editText10.setText(wellListRow[10], TextView.BufferType.EDITABLE);
-
-        TextView editText11 = (TextView)findViewById(R.id.dump_text11);
-        editText11.setText(wellListRow[11], TextView.BufferType.EDITABLE);
-
-        TextView editText12 = (TextView)findViewById(R.id.dump_text12);
-        editText12.setText(wellListRow[12], TextView.BufferType.EDITABLE);
-
-        TextView editText13 = (TextView)findViewById(R.id.dump_text13);
-        editText13.setText(wellListRow[13], TextView.BufferType.EDITABLE);
-
-        TextView editText14 = (TextView)findViewById(R.id.dump_text14);
-        editText14.setText(wellListRow[14], TextView.BufferType.EDITABLE);
+        editText0 = findViewById(R.id.dump_text0);
+        editText0.setText(wellListRow[0], EditText.BufferType.EDITABLE);
+        editText1 = findViewById(R.id.dump_text1);
+        editText1.setText(wellListRow[1], EditText.BufferType.EDITABLE);
+        editText2 = findViewById(R.id.dump_text2);
+        editText2.setText(wellListRow[2], EditText.BufferType.EDITABLE);
+        editText3 = findViewById(R.id.dump_text3);
+        editText3.setText(wellListRow[3], EditText.BufferType.EDITABLE);
+        editText4 = findViewById(R.id.dump_text4);
+        editText4.setText(wellListRow[4], EditText.BufferType.EDITABLE);
+        editText5 = findViewById(R.id.dump_text5);
+        editText5.setText(wellListRow[5], EditText.BufferType.EDITABLE);
+        editText6 = findViewById(R.id.dump_text6);
+        editText6.setText(wellListRow[6], EditText.BufferType.EDITABLE);
+        editText7 = findViewById(R.id.dump_text7);
+        editText7.setText(wellListRow[7], EditText.BufferType.EDITABLE);
+        editText8 = findViewById(R.id.dump_text8);
+        editText8.setText(wellListRow[8], EditText.BufferType.EDITABLE);
+        editText9 = findViewById(R.id.dump_text9);
+        editText9.setText(wellListRow[9], EditText.BufferType.EDITABLE);
+        editText10 = findViewById(R.id.dump_text10);
+        editText10.setText(wellListRow[10], EditText.BufferType.EDITABLE);
+        editText11 = findViewById(R.id.dump_text11);
+        editText11.setText(wellListRow[11], EditText.BufferType.EDITABLE);
+        editText12 = findViewById(R.id.dump_text12);
+        editText12.setText(wellListRow[12], EditText.BufferType.EDITABLE);
+        editText13 = findViewById(R.id.dump_text13);
+        editText13.setText(wellListRow[13], EditText.BufferType.EDITABLE);
+        editText14 = findViewById(R.id.dump_text14);
+        editText14.setText(wellListRow[14], EditText.BufferType.EDITABLE);
 
 
 

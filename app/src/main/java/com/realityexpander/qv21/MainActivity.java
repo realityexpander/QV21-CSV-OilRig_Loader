@@ -1,5 +1,6 @@
 package com.realityexpander.qv21;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
@@ -14,11 +15,14 @@ import java.util.Arrays;
 import java.util.List;
 
 
+
 public class MainActivity extends AppCompatActivity {
     private ListView listView;
     private ItemArrayAdapter itemArrayAdapter;
 
     List<String[]> wellList;
+    public static final int EDIT_WELL_ROW_REQUEST = 1000;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,11 +42,11 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("index", i);
 
                 Log.d("CDA:", Arrays.toString(wellList.get(i)) );
-                startActivityForResult(intent, 10000);
+                startActivityForResult(intent, EDIT_WELL_ROW_REQUEST);
             }
         });
 
-        // Need to load data?
+        // Need to load data the first time?
         if (wellList == null) {
             InputStream inputStream = getResources().openRawResource(R.raw.welldata);
             WellDataCSVFile wellDataCSVFile = new WellDataCSVFile(inputStream);
@@ -56,16 +60,28 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.d("CDA onActivityResult:", requestCode +" "+ resultCode +" "+ data);
-//        // Check which request we're responding to
-//        if (requestCode == PICK_CONTACT_REQUEST) {
-//            // Make sure the request was successful
-//            if (resultCode == RESULT_OK) {
-//                // The user picked a contact.
-//                // The Intent's data Uri identifies which contact was selected.
-//
-//                // Do something with the contact here (bigger example below)
-//            }
-//        }
+        Log.d("CDA onActivityResult:", requestCode + " " + resultCode + " " + data);
+
+        if (requestCode == EDIT_WELL_ROW_REQUEST) {
+            if (resultCode == Activity.RESULT_OK) {
+                Bundle bundle = data.getExtras();
+                String[] wellListRow = bundle.getStringArray("wellListRow");
+                int wellListIdx = bundle.getInt("index");
+
+                Log.d("CDA in onActivityResult wellListRow=", Arrays.toString(wellListRow) );
+
+                // TODO copy all the items back into our database array
+                wellList.set(wellListIdx, wellListRow);
+                Log.d("CDA in onActivityResult wellList=", Arrays.toString(wellList.get(wellListIdx)) );
+
+                itemArrayAdapter.clear();
+                for (String[] wellData : wellList) {
+                    itemArrayAdapter.add(wellData);
+                }
+//                itemArrayAdapter.notifyDataSetChanged();
+                listView.setAdapter(itemArrayAdapter);
+
+            }
+        }
     }
 }
