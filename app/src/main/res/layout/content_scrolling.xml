@@ -14,21 +14,30 @@
         android:layout_height="700dp">
 
         <EditText
-            android:id="@+id/dump_text"
+            android:id="@+id/dump_text0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:inputType="text|textMultiLine"
             android:minLines="2"
             android:text="@string/large_text"
             android:textIsSelectable="true"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="parent" />
+
+        <EditText
+            android:id="@+id/dump_text1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:inputType="text|textMultiLine"
+            android:minLines="2"
+            android:textIsSelectable="true"
+            app:layout_constraintTop_toBottomOf="@+id/dump_text0"
+            tools:layout_editor_absoluteX="16dp" />
 
         <EditText
             android:id="@+id/dump_text2"
@@ -37,8 +46,8 @@
             android:layout_margin="@dimen/text_margin"
             android:inputType="text|textMultiLine"
             android:minLines="2"
-            app:layout_constraintTop_toBottomOf="@+id/dump_text"
-             />
+            app:layout_constraintTop_toBottomOf="@+id/dump_text1"
+            tools:layout_editor_absoluteX="16dp" />
 
         <EditText
             android:id="@+id/dump_text3"
@@ -48,6 +57,116 @@
             android:inputType="text|textMultiLine"
             android:minLines="2"
             app:layout_constraintTop_toBottomOf="@+id/dump_text2"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <EditText
+            android:id="@+id/dump_text4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:inputType="text|textMultiLine"
+            android:minLines="2"
+            app:layout_constraintTop_toBottomOf="@+id/dump_text3"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <EditText
+            android:id="@+id/dump_text5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:inputType="text|textMultiLine"
+            android:minLines="2"
+            app:layout_constraintTop_toBottomOf="@+id/dump_text4"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <EditText
+            android:id="@+id/dump_text6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:inputType="text|textMultiLine"
+            android:minLines="2"
+            app:layout_constraintTop_toBottomOf="@+id/dump_text5"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <EditText
+            android:id="@+id/dump_text7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:inputType="text|textMultiLine"
+            android:minLines="2"
+            app:layout_constraintTop_toBottomOf="@+id/dump_text6"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <EditText
+            android:id="@+id/dump_text8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:inputType="text|textMultiLine"
+            android:minLines="2"
+            app:layout_constraintTop_toBottomOf="@+id/dump_text7"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <EditText
+            android:id="@+id/dump_text9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:inputType="text|textMultiLine"
+            android:minLines="2"
+            app:layout_constraintTop_toBottomOf="@+id/dump_text8"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <EditText
+            android:id="@+id/dump_text10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:inputType="text|textMultiLine"
+            android:minLines="2"
+            app:layout_constraintTop_toBottomOf="@+id/dump_text9"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <EditText
+            android:id="@+id/dump_text11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:inputType="text|textMultiLine"
+            android:minLines="2"
+            app:layout_constraintTop_toBottomOf="@+id/dump_text10"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <EditText
+            android:id="@+id/dump_text12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:inputType="text|textMultiLine"
+            android:minLines="2"
+            app:layout_constraintTop_toBottomOf="@+id/dump_text11"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <EditText
+            android:id="@+id/dump_text13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:inputType="text|textMultiLine"
+            android:minLines="2"
+            app:layout_constraintTop_toBottomOf="@+id/dump_text12"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <EditText
+            android:id="@+id/dump_text14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:inputType="text|textMultiLine"
+            android:minLines="2"
+            app:layout_constraintTop_toBottomOf="@+id/dump_text13"
             tools:layout_editor_absoluteX="16dp" />
 
     </android.support.constraint.ConstraintLayout>

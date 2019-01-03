@@ -38,16 +38,34 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("index", i);
 
                 Log.d("CDA:", Arrays.toString(wellList.get(i)) );
-                startActivity(intent);
+                startActivityForResult(intent, 10000);
             }
         });
 
-        InputStream inputStream = getResources().openRawResource(R.raw.welldata);
-        WellDataCSVFile wellDataCSVFile = new WellDataCSVFile(inputStream);
-        wellList = wellDataCSVFile.read();
+        // Need to load data?
+        if (wellList == null) {
+            InputStream inputStream = getResources().openRawResource(R.raw.welldata);
+            WellDataCSVFile wellDataCSVFile = new WellDataCSVFile(inputStream);
+            wellList = wellDataCSVFile.read();
 
-        for(String[] wellData:wellList ) {
-            itemArrayAdapter.add(wellData);
+            for (String[] wellData : wellList) {
+                itemArrayAdapter.add(wellData);
+            }
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d("CDA onActivityResult:", requestCode +" "+ resultCode +" "+ data);
+//        // Check which request we're responding to
+//        if (requestCode == PICK_CONTACT_REQUEST) {
+//            // Make sure the request was successful
+//            if (resultCode == RESULT_OK) {
+//                // The user picked a contact.
+//                // The Intent's data Uri identifies which contact was selected.
+//
+//                // Do something with the contact here (bigger example below)
+//            }
+//        }
     }
 }
