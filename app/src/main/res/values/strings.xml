@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">QV21</string>
+    <string name="title_activity_scrolling">Edit Well</string>
+    <string name="large_text">
+        "Loading Well Data...\n\n"
+    </string>
+    <string name="action_settings">Settings</string>
+    <string name="test">test</string>
+    <string name="android_hint">android:hint</string>
+</resources>
