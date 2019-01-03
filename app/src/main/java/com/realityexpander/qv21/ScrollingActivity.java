@@ -43,6 +43,5 @@ public class ScrollingActivity extends AppCompatActivity {
 
         setTitle("Editing: " + wellListRow[5]);
 
-        // Remove this comment more comments
     }
 }
