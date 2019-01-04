@@ -25,13 +25,10 @@ public class WellDataCSVFile {
             String csvLine;
             int tempCounter=0;
             while ((csvLine = reader.readLine()) != null) {
-                // Massage the data
+                // Clean the data
                 String[] row = csvLine.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)"); // Strip out quoted strings
                 row[0] = row[0].replace("\"",""); // Remove the quotes
                 resultList.add(row);
-
-                if(tempCounter++ > 5)
-                    break;
             }
         }
         catch (IOException ex) {

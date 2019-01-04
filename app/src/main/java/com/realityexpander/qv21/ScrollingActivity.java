@@ -72,7 +72,6 @@ public class ScrollingActivity extends AppCompatActivity {
                 wellListRow[13] = editText13.getText().toString();
                 wellListRow[14] = editText14.getText().toString();
 
-                Log.d("CDA sending back edits:", Arrays.toString(wellListRow) );
                 finish();
             }
         });
@@ -80,7 +79,6 @@ public class ScrollingActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         wellListRow = bundle.getStringArray("wellListRow");
         wellListIdx = bundle.getInt("index");
-        //Log.d("CDA in ScrollingActivity", Arrays.toString(wellListRow) );
 
         setTitle("Editing: " + wellListRow[5]);
 

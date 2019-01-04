@@ -19,30 +19,26 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private ListView listView;
     private ItemArrayAdapter itemArrayAdapter;
-
     private List<String[]> wellList;
     public static final int EDIT_WELL_ROW_REQUEST = 1000;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         listView = (ListView) findViewById(R.id.listView);
         itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(), R.layout.item_layout);
 
-//        Parcelable state = listView.onSaveInstanceState();
-//        listView.setAdapter(itemArrayAdapter);
-//        listView.onRestoreInstanceState(state);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getApplicationContext(),ScrollingActivity.class);
-                intent.putExtra( "wellListRow", wellList.get(i));
-                intent.putExtra("index", i);
+            Intent intent = new Intent(getApplicationContext(),ScrollingActivity.class);
+            intent.putExtra( "wellListRow", wellList.get(i));
+            intent.putExtra("index", i);
 
-                Log.d("CDA:", Arrays.toString(wellList.get(i)) );
-                startActivityForResult(intent, EDIT_WELL_ROW_REQUEST);
+            Log.d("CDA:", Arrays.toString(wellList.get(i)) );
+            startActivityForResult(intent, EDIT_WELL_ROW_REQUEST);
             }
         });
 
@@ -57,35 +53,26 @@ public class MainActivity extends AppCompatActivity {
                 itemArrayAdapter.add(wellData);
             }
         }
+
+        setTitle("QV21 Well Data, " + wellList.size() + " records");
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.d("CDA onActivityResult:", requestCode + " " + resultCode + " " + data);
-
         if (requestCode == EDIT_WELL_ROW_REQUEST) {
             if (resultCode == Activity.RESULT_OK) {
                 Bundle bundle = data.getExtras();
                 String[] wellListRow = bundle.getStringArray("wellListRow");
                 int wellListIdx = bundle.getInt("index");
 
-                Log.d("CDA in onActivityResult wellListRow=", Arrays.toString(wellListRow) );
-
-                // TODO the items back into our database array
+                //Log.d("CDA in onActivityResult wellListRow=", Arrays.toString(wellListRow) );
                 wellList.set(wellListIdx, wellListRow);
-                Log.d("CDA in onActivityResult wellList=", Arrays.toString(wellList.get(wellListIdx)) );
 
                 itemArrayAdapter.clear();
+                for (String[] wellData : wellList) {
+                    itemArrayAdapter.add(wellData);
+                }
                 itemArrayAdapter.notifyDataSetChanged();
-                itemArrayAdapter.add(wellListRow);
-//                itemArrayAdapter.notifyDataSetChanged();
-//                for (String[] wellData : wellList) {
-//                    itemArrayAdapter.add(wellData);
-//                }
-//                itemArrayAdapter.notifyDataSetChanged();
-//                listView.deferNotifyDataSetChanged();
-//                listView.invalidateViews();
-
             }
         }
     }

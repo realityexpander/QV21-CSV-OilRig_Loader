@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemArrayAdapter extends ArrayAdapter<String[]> {
-	private List<String[]> scoreList = new ArrayList<String[]>();
+	private List<String[]> itemList = new ArrayList<String[]>();
 
     static class ItemViewHolder {
         TextView owner;
@@ -25,23 +25,23 @@ public class ItemArrayAdapter extends ArrayAdapter<String[]> {
 
 	@Override
 	public void add(String[] object) {
-		scoreList.add(object);
+		itemList.add(object);
 		super.add(object);
 	}
 
     @Override
 	public int getCount() {
-		return this.scoreList.size();
+		return this.itemList.size();
 	}
 
     @Override
 	public String[] getItem(int index) {
-		return this.scoreList.get(index);
+		return this.itemList.get(index);
 	}
 
 	@Override
     public void clear() {
-        scoreList.clear();
+        itemList.clear();
         super.clear();
     }
 
