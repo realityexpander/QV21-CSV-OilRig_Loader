@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private ItemArrayAdapter itemArrayAdapter;
     private List<String[]> wellList;
     public static final int EDIT_WELL_ROW_REQUEST = 1000;
+    public static final int WELLDATA_NUMBER_COLS_IN_CSV = 14;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
