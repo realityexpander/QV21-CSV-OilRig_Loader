@@ -28,17 +28,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listView = (ListView) findViewById(R.id.listView);
+        listView = findViewById(R.id.listView);
         itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(), R.layout.item_layout);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             Intent intent = new Intent(getApplicationContext(),ScrollingActivity.class);
-            intent.putExtra( "wellListRow", wellList.get(i));
+            intent.putExtra("wellListRow", wellList.get(i));
             intent.putExtra("index", i);
 
-            Log.d("CDA:", Arrays.toString(wellList.get(i)) );
             startActivityForResult(intent, EDIT_WELL_ROW_REQUEST);
             }
         });
@@ -66,9 +65,9 @@ public class MainActivity extends AppCompatActivity {
                 String[] wellListRow = bundle.getStringArray("wellListRow");
                 int wellListIdx = bundle.getInt("index");
 
-                //Log.d("CDA in onActivityResult wellListRow=", Arrays.toString(wellListRow) );
                 wellList.set(wellListIdx, wellListRow);
 
+                // Load the edited data into our database array & update the UI
                 itemArrayAdapter.clear();
                 for (String[] wellData : wellList) {
                     itemArrayAdapter.add(wellData);

@@ -13,60 +13,61 @@ public class ItemArrayAdapter extends ArrayAdapter<String[]> {
 	private List<String[]> itemList = new ArrayList<String[]>();
 
     static class ItemViewHolder {
-        TextView owner;
-        TextView leaseName;
-        TextView tankName;
-        TextView tankNum;
+      TextView owner;
+      TextView leaseName;
+      TextView tankName;
+      TextView tankNum;
     }
 
     public ItemArrayAdapter(Context context, int textViewResourceId) {
-        super(context, textViewResourceId);
+      super(context, textViewResourceId);
     }
 
-	@Override
-	public void add(String[] object) {
-		itemList.add(object);
-		super.add(object);
-	}
+    @Override
+    public void add(String[] object) {
+      itemList.add(object);
+      super.add(object);
+    }
 
     @Override
-	public int getCount() {
+	  public int getCount() {
 		return this.itemList.size();
 	}
 
     @Override
-	public String[] getItem(int index) {
+	  public String[] getItem(int index) {
 		return this.itemList.get(index);
 	}
 
-	@Override
+	  @Override
     public void clear() {
-        itemList.clear();
-        super.clear();
+      itemList.clear();
+      super.clear();
     }
 
     @Override
-	public View getView(int position, View convertView, ViewGroup parent) {
-		View row = convertView;
-        ItemViewHolder viewHolder;
-		if (row == null) {
-			LayoutInflater inflater = (LayoutInflater) this.getContext().
-                    getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			row = inflater.inflate(R.layout.item_layout, parent, false);
-            viewHolder = new ItemViewHolder();
-            viewHolder.owner = (TextView) row.findViewById(R.id.owner);
-            viewHolder.leaseName = (TextView) row.findViewById(R.id.leaseName);
-            viewHolder.tankName = (TextView) row.findViewById(R.id.tankName);
-            viewHolder.tankNum = (TextView) row.findViewById(R.id.tankNum);
-            row.setTag(viewHolder);
-		} else {
-            viewHolder = (ItemViewHolder)row.getTag();
-        }
-        String[] stat = getItem(position);
-        viewHolder.owner.setText(stat[0]);
-        viewHolder.leaseName.setText(stat[5]);
-        viewHolder.tankName.setText(stat[7]);
-        viewHolder.tankNum.setText(stat[8]);
-		return row;
-	}
+	  public View getView(int position, View convertView, ViewGroup parent) {
+      View row = convertView;
+      ItemViewHolder viewHolder;
+      if (row == null) {
+        LayoutInflater inflater = (LayoutInflater) this.getContext().
+                getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        row = inflater.inflate(R.layout.item_layout, parent, false);
+        viewHolder = new ItemViewHolder();
+        viewHolder.owner = (TextView) row.findViewById(R.id.owner);
+        viewHolder.leaseName = (TextView) row.findViewById(R.id.leaseName);
+        viewHolder.tankName = (TextView) row.findViewById(R.id.tankName);
+        viewHolder.tankNum = (TextView) row.findViewById(R.id.tankNum);
+        row.setTag(viewHolder);
+      } else {
+        viewHolder = (ItemViewHolder)row.getTag();
+      }
+      String[] stat = getItem(position);
+      viewHolder.owner.setText(stat[0]);
+      viewHolder.leaseName.setText(stat[5]);
+      viewHolder.tankName.setText(stat[7]);
+      viewHolder.tankNum.setText(stat[8]);
+
+      return row;
+    }
 }
