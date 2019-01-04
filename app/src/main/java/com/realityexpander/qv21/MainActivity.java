@@ -17,63 +17,64 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
-    private ListView listView;
-    private ItemArrayAdapter itemArrayAdapter;
-    private List<String[]> wellList;
-    public static final int EDIT_WELL_ROW_REQUEST = 1000;
-    public static final int WELLDATA_NUMBER_COLS_IN_CSV = 14;
+  private ListView listView;
+  private ItemArrayAdapter itemArrayAdapter;
+  private List<String[]> wellList;
+  
+  public static final int EDIT_WELL_ROW_REQUEST = 1000;
+  public static final int WELLDATA_NUMBER_COLS_IN_CSV = 14;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
 
-        listView = findViewById(R.id.listView);
-        itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(), R.layout.item_layout);
+    listView = findViewById(R.id.listView);
+    itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(), R.layout.item_layout);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            Intent intent = new Intent(getApplicationContext(),ScrollingActivity.class);
-            intent.putExtra("wellListRow", wellList.get(i));
-            intent.putExtra("index", i);
+    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+      Intent intent = new Intent(getApplicationContext(),ScrollingActivity.class);
+      intent.putExtra("wellListRow", wellList.get(i));
+      intent.putExtra("index", i);
 
-            startActivityForResult(intent, EDIT_WELL_ROW_REQUEST);
-            }
-        });
-
-        // Need to load data the first time?
-        if (wellList == null) {
-            InputStream inputStream = getResources().openRawResource(R.raw.welldata);
-            WellDataCSVFile wellDataCSVFile = new WellDataCSVFile(inputStream);
-            wellList = wellDataCSVFile.read();
-
-            listView.setAdapter(itemArrayAdapter);
-            for (String[] wellData : wellList) {
-                itemArrayAdapter.add(wellData);
-            }
+      startActivityForResult(intent, EDIT_WELL_ROW_REQUEST);
         }
+    });
 
-        setTitle("QV21 Well Data, " + wellList.size() + " records");
+    // Need to load data the first time?
+    if (wellList == null) {
+      InputStream inputStream = getResources().openRawResource(R.raw.welldata);
+      WellDataCSVFile wellDataCSVFile = new WellDataCSVFile(inputStream);
+      wellList = wellDataCSVFile.read();
+
+      listView.setAdapter(itemArrayAdapter);
+      for (String[] wellData : wellList) {
+        itemArrayAdapter.add(wellData);
+      }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == EDIT_WELL_ROW_REQUEST) {
-            if (resultCode == Activity.RESULT_OK) {
-                Bundle bundle = data.getExtras();
-                String[] wellListRow = bundle.getStringArray("wellListRow");
-                int wellListIdx = bundle.getInt("index");
+    setTitle("QV21 Well Data, " + wellList.size() + " records");
+  }
 
-                wellList.set(wellListIdx, wellListRow);
+  @Override
+  protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (requestCode == EDIT_WELL_ROW_REQUEST) {
+      if (resultCode == Activity.RESULT_OK) {
+        Bundle bundle = data.getExtras();
+        String[] wellListRow = bundle.getStringArray("wellListRow");
+        int wellListIdx = bundle.getInt("index");
 
-                // Load the edited data into our database array & update the UI
-                itemArrayAdapter.clear();
-                for (String[] wellData : wellList) {
-                    itemArrayAdapter.add(wellData);
-                }
-                itemArrayAdapter.notifyDataSetChanged();
-            }
+        wellList.set(wellListIdx, wellListRow);
+
+        // Load the edited data into our database array & update the UI
+        itemArrayAdapter.clear();
+        for (String[] wellData : wellList) {
+          itemArrayAdapter.add(wellData);
         }
+        itemArrayAdapter.notifyDataSetChanged();
+      }
     }
+  }
 }
