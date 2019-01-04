@@ -39,6 +39,12 @@ public class ItemArrayAdapter extends ArrayAdapter<String[]> {
 		return this.scoreList.get(index);
 	}
 
+	@Override
+    public void clear() {
+        scoreList.clear();
+        super.clear();
+    }
+
     @Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View row = convertView;

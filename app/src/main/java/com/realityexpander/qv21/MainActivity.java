@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView listView;
     private ItemArrayAdapter itemArrayAdapter;
 
-    List<String[]> wellList;
+    private List<String[]> wellList;
     public static final int EDIT_WELL_ROW_REQUEST = 1000;
 
 
@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listView);
         itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(), R.layout.item_layout);
 
-        Parcelable state = listView.onSaveInstanceState();
-        listView.setAdapter(itemArrayAdapter);
-        listView.onRestoreInstanceState(state);
+//        Parcelable state = listView.onSaveInstanceState();
+//        listView.setAdapter(itemArrayAdapter);
+//        listView.onRestoreInstanceState(state);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
             WellDataCSVFile wellDataCSVFile = new WellDataCSVFile(inputStream);
             wellList = wellDataCSVFile.read();
 
+            listView.setAdapter(itemArrayAdapter);
             for (String[] wellData : wellList) {
                 itemArrayAdapter.add(wellData);
             }
@@ -70,16 +71,20 @@ public class MainActivity extends AppCompatActivity {
 
                 Log.d("CDA in onActivityResult wellListRow=", Arrays.toString(wellListRow) );
 
-                // TODO copy all the items back into our database array
+                // TODO the items back into our database array
                 wellList.set(wellListIdx, wellListRow);
                 Log.d("CDA in onActivityResult wellList=", Arrays.toString(wellList.get(wellListIdx)) );
 
                 itemArrayAdapter.clear();
-                for (String[] wellData : wellList) {
-                    itemArrayAdapter.add(wellData);
-                }
+                itemArrayAdapter.notifyDataSetChanged();
+                itemArrayAdapter.add(wellListRow);
 //                itemArrayAdapter.notifyDataSetChanged();
-                listView.setAdapter(itemArrayAdapter);
+//                for (String[] wellData : wellList) {
+//                    itemArrayAdapter.add(wellData);
+//                }
+//                itemArrayAdapter.notifyDataSetChanged();
+//                listView.deferNotifyDataSetChanged();
+//                listView.invalidateViews();
 
             }
         }
