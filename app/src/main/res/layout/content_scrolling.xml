@@ -19,9 +19,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
             android:layout_marginStart="8dp"
-            android:layout_marginBottom="8dp"
             android:inputType="text|textMultiLine"
-            android:minLines="2"
+            android:minLines="1"
             android:text="@string/large_text"
             android:textIsSelectable="true"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -33,131 +32,151 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginBottom="6dp"
+            android:paddingTop="14dp"
             android:text="Well Owner"
-            app:layout_constraintLeft_toLeftOf="@+id/dump_text0"
-            app:layout_constraintTop_toTopOf="@+id/dump_text0" />
+            app:layout_constraintBottom_toTopOf="@+id/dump_text1"
+            app:layout_constraintLeft_toLeftOf="@+id/dump_text0" />
 
         <EditText
             android:id="@+id/dump_text1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:inputType="text|textMultiLine"
-            android:minLines="2"
+            android:minLines="1"
             android:textIsSelectable="true"
-            app:layout_constraintTop_toBottomOf="@+id/dump_text0"
-            tools:layout_editor_absoluteX="16dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dump_text0" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginBottom="6dp"
+            android:paddingTop="14dp"
             android:text="API"
-            app:layout_constraintLeft_toLeftOf="@+id/dump_text1"
-            app:layout_constraintTop_toTopOf="@+id/dump_text1" />
+            app:layout_constraintBottom_toTopOf="@+id/dump_text2"
+            app:layout_constraintLeft_toLeftOf="@+id/dump_text1" />
 
         <EditText
             android:id="@+id/dump_text2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:inputType="text|textMultiLine"
-            android:minLines="2"
-            app:layout_constraintTop_toBottomOf="@+id/dump_text1"
-            tools:layout_editor_absoluteX="16dp" />
+            android:minLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dump_text1" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginBottom="6dp"
             android:text="Longitude"
-            app:layout_constraintLeft_toLeftOf="@+id/dump_text2"
-            app:layout_constraintTop_toTopOf="@+id/dump_text2" />
+            app:layout_constraintBottom_toTopOf="@+id/dump_text3"
+            app:layout_constraintLeft_toLeftOf="@+id/dump_text2" />
 
         <EditText
             android:id="@+id/dump_text3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:inputType="text|textMultiLine"
-            android:minLines="2"
-            app:layout_constraintTop_toBottomOf="@+id/dump_text2"
-            tools:layout_editor_absoluteX="16dp" />
+            android:minLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dump_text2" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginBottom="6dp"
             android:text="Latitude"
-            app:layout_constraintLeft_toLeftOf="@+id/dump_text3"
-            app:layout_constraintTop_toTopOf="@+id/dump_text3" />
+            app:layout_constraintBottom_toTopOf="@+id/dump_text4"
+            app:layout_constraintLeft_toLeftOf="@+id/dump_text3" />
 
         <EditText
             android:id="@+id/dump_text4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:inputType="text|textMultiLine"
-            android:minLines="2"
-            app:layout_constraintTop_toBottomOf="@+id/dump_text3"
-            tools:layout_editor_absoluteX="16dp" />
+            android:minLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dump_text3" />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="60dp"
-            android:text="Property"
-            app:layout_constraintLeft_toLeftOf="@+id/dump_text4"
-            app:layout_constraintTop_toTopOf="@+id/dump_text4" />
+            android:layout_marginBottom="6dp"
+            android:text="Property #"
+            app:layout_constraintBottom_toTopOf="@+id/dump_text5"
+            app:layout_constraintLeft_toLeftOf="@+id/dump_text4" />
 
         <EditText
             android:id="@+id/dump_text5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:inputType="text|textMultiLine"
-            android:minLines="2"
-            app:layout_constraintTop_toBottomOf="@+id/dump_text4"
-            tools:layout_editor_absoluteX="16dp" />
+            android:minLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dump_text4" />
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="60dp"
-            android:text="Well Name"
-            app:layout_constraintLeft_toLeftOf="@+id/dump_text5"
-            app:layout_constraintTop_toTopOf="@+id/dump_text5" />
+            android:layout_marginBottom="6dp"
+            android:text="Lease / Well Name"
+            app:layout_constraintBottom_toTopOf="@+id/dump_text6"
+            app:layout_constraintLeft_toLeftOf="@+id/dump_text5" />
 
         <EditText
             android:id="@+id/dump_text6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:inputType="text|textMultiLine"
-            android:minLines="2"
-            app:layout_constraintTop_toBottomOf="@+id/dump_text5"
-            tools:layout_editor_absoluteX="16dp" />
+            android:minLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dump_text5" />
 
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="60dp"
-            android:text="Well Name"
-            app:layout_constraintLeft_toLeftOf="@+id/dump_text5"
-            app:layout_constraintTop_toTopOf="@+id/dump_text5" />
+            android:layout_marginBottom="6dp"
+            android:text="Tank MID"
+            app:layout_constraintBottom_toTopOf="@+id/dump_text7"
+            app:layout_constraintLeft_toLeftOf="@+id/dump_text6" />
 
         <EditText
             android:id="@+id/dump_text7"
@@ -165,9 +184,22 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
             android:inputType="text|textMultiLine"
-            android:minLines="2"
+            android:minLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dump_text6"
             tools:layout_editor_absoluteX="16dp" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="6dp"
+            android:text="Tank Name"
+            app:layout_constraintBottom_toTopOf="@+id/dump_text8"
+            app:layout_constraintLeft_toLeftOf="@+id/dump_text7" />
+
 
         <EditText
             android:id="@+id/dump_text8"
@@ -175,9 +207,21 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
             android:inputType="text|textMultiLine"
-            android:minLines="2"
+            android:minLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dump_text7"
             tools:layout_editor_absoluteX="16dp" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="6dp"
+            android:text="Tank Nbr"
+            app:layout_constraintBottom_toTopOf="@+id/dump_text9"
+            app:layout_constraintLeft_toLeftOf="@+id/dump_text8" />
 
         <EditText
             android:id="@+id/dump_text9"
@@ -185,9 +229,21 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
             android:inputType="text|textMultiLine"
-            android:minLines="2"
+            android:minLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dump_text8"
             tools:layout_editor_absoluteX="16dp" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="6dp"
+            android:text="Tank Size"
+            app:layout_constraintBottom_toTopOf="@+id/dump_text10"
+            app:layout_constraintLeft_toLeftOf="@+id/dump_text9" />
 
         <EditText
             android:id="@+id/dump_text10"
@@ -195,9 +251,21 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
             android:inputType="text|textMultiLine"
-            android:minLines="2"
+            android:minLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dump_text9"
             tools:layout_editor_absoluteX="16dp" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="6dp"
+            android:text="BBLS per inch"
+            app:layout_constraintBottom_toTopOf="@+id/dump_text11"
+            app:layout_constraintLeft_toLeftOf="@+id/dump_text10" />
 
         <EditText
             android:id="@+id/dump_text11"
@@ -205,9 +273,21 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
             android:inputType="text|textMultiLine"
-            android:minLines="2"
+            android:minLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dump_text10"
             tools:layout_editor_absoluteX="16dp" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="6dp"
+            android:text="SEC"
+            app:layout_constraintBottom_toTopOf="@+id/dump_text12"
+            app:layout_constraintLeft_toLeftOf="@+id/dump_text11" />
 
         <EditText
             android:id="@+id/dump_text12"
@@ -215,9 +295,21 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
             android:inputType="text|textMultiLine"
-            android:minLines="2"
+            android:minLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dump_text11"
             tools:layout_editor_absoluteX="16dp" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="6dp"
+            android:text="TWP"
+            app:layout_constraintBottom_toTopOf="@+id/dump_text13"
+            app:layout_constraintLeft_toLeftOf="@+id/dump_text12" />
 
         <EditText
             android:id="@+id/dump_text13"
@@ -225,9 +317,21 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
             android:inputType="text|textMultiLine"
-            android:minLines="2"
+            android:minLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dump_text12"
             tools:layout_editor_absoluteX="16dp" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="6dp"
+            android:text="RNG"
+            app:layout_constraintBottom_toTopOf="@+id/dump_text14"
+            app:layout_constraintLeft_toLeftOf="@+id/dump_text13" />
 
         <EditText
             android:id="@+id/dump_text14"
@@ -235,9 +339,34 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
             android:inputType="text|textMultiLine"
-            android:minLines="2"
+            android:minLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dump_text13"
             tools:layout_editor_absoluteX="16dp" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="6dp"
+            android:text="COUNTY"
+            app:layout_constraintBottom_toTopOf="@+id/dump_text15"
+            app:layout_constraintStart_toStartOf="@+id/dump_text14" />
+
+        <EditText
+            android:id="@+id/dump_text15"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="@dimen/text_margin"
+            android:enabled="false"
+            android:inputType="text|textMultiLine"
+            android:minLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dump_text14" />
+
 
     </android.support.constraint.ConstraintLayout>
 
